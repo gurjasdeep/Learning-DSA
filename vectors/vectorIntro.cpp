@@ -14,7 +14,6 @@ int main () {
     // Push back - append item at last
     vec0.push_back(100);
     cout << "Size of vec0 after push back - " << vec0.size() << '\n';
-    x
     cout << vec1.back() << endl; // last val
 
 
@@ -25,7 +24,6 @@ int main () {
     cout << vec1.front() << endl; // frist val
 
     cout << vec3.at(2) << endl; // at specific index
-    vec3.assign
     
  
 
