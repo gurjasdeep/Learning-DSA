@@ -1,0 +1,10 @@
+*
+!*.*
+!.gitignore
+!*/
+*.plist
+*.yml
+*.DS_Store
+.vscode/*
+*.dSYM/
+
