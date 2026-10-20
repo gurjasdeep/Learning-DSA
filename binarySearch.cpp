@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
@@ -15,7 +16,7 @@ void selectionSort(int *nums, int size){
     }
 }
 
-int binarySearch(int *arr, int size, int target) {
+int binarySearchol(int *arr, int size, int target) {
     int cS = 0;
     int cE = size - 1;
 
@@ -41,6 +42,22 @@ int binarySearch(int *arr, int size, int target) {
     return -1;
 }
 
+int binarySearch(vector<int>& nums, int start, int end, int target){
+    while (start <= end){
+        int mid = start + ((end-start)/2);
+        if (nums[mid] > target){
+            end = mid - 1;
+        }
+        else if (nums[mid] < target){
+            start = mid + 1;
+        }
+        else {
+            return mid;
+        }
+    }
+    return -1;
+}
+
 void displayArr(int *arr, int size){
     cout << "{ ";
     for (int i = 0; i < size; i++){
@@ -48,13 +65,24 @@ void displayArr(int *arr, int size){
     }
     cout << "}";
 }
+void displayVec(vector<int> arr, int size){
+    cout << "{ ";
+    for (int i = 0; i < size; i++){
+        cout << arr[i] << " ";
+    }
+    cout << "}";
+}
 
 int main() {
-    int arr[5] = {23, 43, 5, 65, 4};
+    vector<int> arr = {3, 4, 5, 65, 100};
     int size = 5;
-    selectionSort(arr, size);
-    displayArr(arr, size);
+    // selectionSort(arr, size);
+    displayVec(arr, arr.size());
     cout << endl;
-    binarySearch(arr, 5, 65);
+    int toFind = 100;
+    int foundAt = binarySearch(arr, 0, arr.size()-1, toFind);
+    cout << "Found " << toFind << " AT " << foundAt << endl;
+
+
 
 }
